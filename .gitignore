@@ -209,3 +209,4 @@ config/local.yaml
 config/development.yaml
 config/*.local.yaml
 *.local
+upload_*.py
