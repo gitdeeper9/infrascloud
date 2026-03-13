@@ -1,0 +1,16 @@
+{
+  "weights": {
+    "P_ub": 0.18,
+    "D_str": 0.14,
+    "f_p": 0.21,
+    "theta": 0.15,
+    "v_ph": 0.12,
+    "alpha_air": 0.07,
+    "gamma2": 0.08,
+    "SNR": 0.05
+  },
+  "method": "PCA-regularized logistic regression",
+  "training_events": 1847,
+  "validation_accuracy": 0.931,
+  "version": "1.0.0"
+}

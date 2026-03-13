@@ -1,0 +1,162 @@
+# INFRAS-CLOUD Development Docker Compose Configuration
+# Atmospheric Infrasound & Severe Weather Acoustic Signatures
+# Version: 1.0.0 | DOI: 10.5281/zenodo.18952438
+
+version: '3.8'
+
+services:
+  # ============================================
+  # INFRAS-CLOUD Development Service
+  # ============================================
+  infrascloud-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: infrascloud-dev
+    restart: unless-stopped
+    ports:
+      - "5000:5000"  # Web dashboard
+      - "8000:8000"  # API
+      - "8888:8888"  # Jupyter
+      - "9090:9090"  # Metrics
+    volumes:
+      - ./:/app  # Mount entire project for development
+      - /app/__pycache__  # Exclude Python cache
+      - /app/.git  # Exclude git
+      - ./data-dev:/data  # Development data
+      - ./logs-dev:/logs  # Development logs
+      - ./notebooks:/notebooks  # Jupyter notebooks
+    environment:
+      - STATION_ID=DEV_STATION
+      - STATION_NAME=Development
+      - STATION_LAT=0.0
+      - STATION_LON=0.0
+      - DB_HOST=timescaledb-dev
+      - DB_PORT=5432
+      - DB_NAME=infrascloud_dev
+      - DB_USER=infrauser
+      - DB_PASSWORD=devpassword
+      - REDIS_HOST=redis-dev
+      - REDIS_PORT=6379
+      - INFRA_ENV=development
+      - INFRA_LOG_LEVEL=DEBUG
+      - INFRA_DEBUG=true
+      - JUPYTER_TOKEN=infrascloud
+    depends_on:
+      - timescaledb-dev
+      - redis-dev
+    networks:
+      - infrascloud-dev-network
+    command: >
+      sh -c "
+        pip install -e .[dev,ml,gpu,docs,test,sensors,web,all] &&
+        jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token=infrascloud &
+        infrascloud serve --host 0.0.0.0 --port 5000 --debug
+      "
+
+  # ============================================
+  # TimescaleDB for Development
+  # ============================================
+  timescaledb-dev:
+    image: timescale/timescaledb:latest-pg15
+    container_name: timescaledb-dev
+    restart: unless-stopped
+    ports:
+      - "5433:5432"  # Different port to avoid conflict with production
+    environment:
+      - POSTGRES_DB=infrascloud_dev
+      - POSTGRES_USER=infrauser
+      - POSTGRES_PASSWORD=devpassword
+    volumes:
+      - timescaledb-dev-data:/var/lib/postgresql/data
+    networks:
+      - infrascloud-dev-network
+
+  # ============================================
+  # Redis for Development
+  # ============================================
+  redis-dev:
+    image: redis:7-alpine
+    container_name: redis-dev
+    restart: unless-stopped
+    ports:
+      - "6380:6379"  # Different port to avoid conflict
+    volumes:
+      - redis-dev-data:/data
+    command: redis-server --appendonly yes
+    networks:
+      - infrascloud-dev-network
+
+  # ============================================
+  # MinIO for S3-compatible storage (Development)
+  # ============================================
+  minio:
+    image: minio/minio:latest
+    container_name: minio-dev
+    restart: unless-stopped
+    ports:
+      - "9000:9000"  # API
+      - "9001:9001"  # Console
+    environment:
+      - MINIO_ROOT_USER=infrauser
+      - MINIO_ROOT_PASSWORD=devpassword
+    volumes:
+      - minio-data:/data
+    command: server /data --console-address ":9001"
+    networks:
+      - infrascloud-dev-network
+
+  # ============================================
+  # PostgreSQL Admin (pgAdmin)
+  # ============================================
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin-dev
+    restart: unless-stopped
+    ports:
+      - "5050:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@infrascloud.dev
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    depends_on:
+      - timescaledb-dev
+    networks:
+      - infrascloud-dev-network
+
+  # ============================================
+  # Redis Commander (Redis GUI)
+  # ============================================
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: redis-commander-dev
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    environment:
+      - REDIS_HOSTS=local:redis-dev:6379
+    depends_on:
+      - redis-dev
+    networks:
+      - infrascloud-dev-network
+
+# ============================================
+# Networks
+# ============================================
+networks:
+  infrascloud-dev-network:
+    driver: bridge
+
+# ============================================
+# Volumes
+# ============================================
+volumes:
+  timescaledb-dev-data:
+    driver: local
+  redis-dev-data:
+    driver: local
+  minio-data:
+    driver: local
+  pgadmin-data:
+    driver: local

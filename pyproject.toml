@@ -1,0 +1,198 @@
+[build-system]
+requires = [
+    "setuptools>=61.0",
+    "wheel>=0.38",
+    "cython>=0.29.0",
+    "numpy>=1.24.0",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "infrascloud"
+version = "1.0.0"
+description = "INFRAS-CLOUD: Atmospheric Infrasound & Severe Weather Acoustic Signatures"
+readme = "README.md"
+requires-python = ">=3.9, <3.12"
+license = {text = "MIT"}
+authors = [
+    {name = "Samir Baladi", email = "gitdeeper@gmail.com"},
+]
+maintainers = [
+    {name = "Samir Baladi", email = "gitdeeper@gmail.com"},
+]
+keywords = [
+    "infrasound",
+    "severe-weather",
+    "acoustics",
+    "microbaroms",
+    "tornado",
+    "hurricane",
+    "volcano",
+    "atmospheric-physics",
+    "signal-processing",
+    "beamforming",
+    "wavelet",
+    "geophysics",
+    "meteorology",
+    "ctbto",
+    "ims-network",
+    "open-source",
+    "scientific-computing",
+    "python",
+]
+
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Education",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Atmospheric Science",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Database",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+dependencies = [
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "pandas>=2.0.0",
+    "xarray>=2023.4.0",
+    "numba>=0.57.0",
+    "sympy>=1.11.1",
+    "obspy>=1.4.0",
+    "librosa>=0.10.0",
+    "pyfftw>=0.13.0",
+    "scikit-learn>=1.2.0",
+    "matplotlib>=3.7.0",
+    "plotly>=5.14.0",
+    "seaborn>=0.12.0",
+    "h5py>=3.8.0",
+    "netCDF4>=1.6.0",
+    "pyyaml>=6.0",
+    "python-dotenv>=1.0.0",
+    "flask>=2.3.0",
+    "dash>=2.9.0",
+    "dash-bootstrap-components>=1.4.0",
+    "psycopg2-binary>=2.9.6",
+    "sqlalchemy>=2.0.12",
+    "redis>=4.5.0",
+    "pyserial>=3.5",
+    "pyusb>=1.2.0",
+    "click>=8.1.0",
+    "tqdm>=4.65.0",
+    "requests>=2.30.0",
+    "joblib>=1.2.0",
+    "colorama>=0.4.6",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/gitdeeper9/infrascloud"
+"Documentation" = "https://infrascloud.netlify.app/docs"
+"Repository" = "https://github.com/gitdeeper9/infrascloud.git"
+"Bug Reports" = "https://github.com/gitdeeper9/infrascloud/issues"
+"Discussion" = "https://github.com/gitdeeper9/infrascloud/discussions"
+"DOI" = "https://doi.org/10.5281/zenodo.18952438"
+"Web Dashboard" = "https://infrascloud.netlify.app"
+"Research Paper" = "https://doi.org/10.5281/zenodo.18952438"
+
+[project.scripts]
+infrascloud = "infrascloud.cli.main:cli"
+infrascloud-init = "infrascloud.cli.init:main"
+infrascloud-collect = "infrascloud.cli.collect:main"
+infrascloud-process = "infrascloud.cli.process:main"
+infrascloud-aisi = "infrascloud.cli.aisi:main"
+infrascloud-serve = "infrascloud.cli.serve:main"
+infrascloud-test-sensors = "infrascloud.cli.test_sensors:main"
+infrascloud-calibrate = "infrascloud.cli.calibrate:main"
+infrascloud-monitor = "infrascloud.cli.monitor:main"
+infrascloud-diagnostic = "infrascloud.cli.diagnostic:main"
+infrascloud-download-sample = "infrascloud.cli.download:main"
+infrascloud-validate = "infrascloud.cli.validate:main"
+infrascloud-report = "infrascloud.cli.report:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "pytest-xdist>=3.0.0",
+    "pytest-asyncio>=0.20.0",
+    "black>=23.0.0",
+    "isort>=5.0.0",
+    "flake8>=6.0.0",
+    "pylint>=2.0.0",
+    "mypy>=1.0.0",
+    "pre-commit>=3.0.0",
+    "ipython>=8.0.0",
+    "jupyter>=1.0.0",
+    "nbconvert>=7.0.0",
+    "nbformat>=5.0.0",
+]
+ml = [
+    "tensorflow>=2.12.0",
+    "torch>=2.0.0",
+    "pytorch-lightning>=2.0.0",
+    "xgboost>=1.7.0",
+    "lightgbm>=3.3.0",
+    "prophet>=1.1.0",
+    "statsmodels>=0.14.0",
+]
+gpu = [
+    "cupy-cuda11x>=12.0.0",
+    "cudf>=23.0.0",
+    "cuml>=23.0.0",
+    "tensorrt>=8.5.0",
+]
+docs = [
+    "sphinx>=7.0.0",
+    "sphinx-rtd-theme>=1.2.0",
+    "sphinx-autodoc-typehints>=1.23.0",
+    "sphinx-gallery>=0.13.0",
+    "nbsphinx>=0.9.0",
+    "mkdocs>=1.4.0",
+    "mkdocs-material>=9.0.0",
+    "mkdocstrings[python]>=0.22.0",
+    "pymdown-extensions>=10.0.0",
+]
+test = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "pytest-xdist>=3.0.0",
+    "pytest-asyncio>=0.20.0",
+    "pytest-mock>=3.0.0",
+    "responses>=0.23.0",
+    "hypothesis>=6.0.0",
+]
+sensors = [
+    "pyserial>=3.5",
+    "pyusb>=1.2.0",
+    "pyvisa>=1.13",
+    "pyvisa-py>=0.5.0",
+]
+web = [
+    "flask>=2.3.0",
+    "flask-cors>=4.0.0",
+    "flask-socketio>=5.3.0",
+    "flask-restx>=1.1.0",
+    "dash>=2.9.0",
+    "dash-bootstrap-components>=1.4.0",
+    "dash-daq>=0.5.0",
+    "gunicorn>=20.1.0",
+    "uvicorn>=0.22.0",
+    "fastapi>=0.100.0",
+]
+all = [
+    "infrascloud[dev,ml,gpu,docs,test,sensors,web]",
+]

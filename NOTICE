@@ -1,0 +1,122 @@
+INFRAS-CLOUD
+Atmospheric Infrasound & Severe Weather Acoustic Signatures
+Version 1.0.0 | DOI: 10.5281/zenodo.18952438
+Copyright (c) 2026 Samir Baladi
+
+This software includes third-party libraries and components under various
+open source licenses. Below is a summary of these components and their
+licensing information.
+
+================================================================================
+Core Dependencies
+================================================================================
+
+NumPy
+Copyright (c) 2005-2023, NumPy Developers
+License: BSD-3-Clause
+https://numpy.org/license.html
+
+SciPy
+Copyright (c) 2001-2002 Enthought, Inc.  2003-2023, SciPy Developers
+License: BSD-3-Clause
+https://github.com/scipy/scipy/blob/main/LICENSE.txt
+
+Pandas
+Copyright (c) 2008-2011, AQR Capital Management, LLC, Lambda Foundry, Inc.
+and PyData Development Team
+License: BSD-3-Clause
+https://github.com/pandas-dev/pandas/blob/main/LICENSE
+
+ObsPy
+Copyright (c) 2010-2023, The ObsPy Development Team
+License: LGPL-3.0
+https://github.com/obspy/obspy/blob/master/LICENSE.txt
+
+Matplotlib
+Copyright (c) 2012- Matplotlib Development Team
+License: PSF-based
+https://matplotlib.org/stable/users/license.html
+
+Scikit-learn
+Copyright (c) 2007-2023 The scikit-learn developers
+License: BSD-3-Clause
+https://github.com/scikit-learn/scikit-learn/blob/main/COPYING
+
+TensorFlow
+Copyright (c) 2023 The TensorFlow Authors
+License: Apache-2.0
+https://github.com/tensorflow/tensorflow/blob/master/LICENSE
+
+PyTorch
+Copyright (c) 2016- Facebook, Inc (Adam Paszke)
+Copyright (c) 2014- Facebook, Inc (Soumith Chintala)
+Copyright (c) 2011-2014 Idiap Research Institute (Ronan Collobert)
+Copyright (c) 2012-2014 Deepmind Technologies (Koray Kavukcuoglu)
+Copyright (c) 2011-2012 NEC Laboratories America (Koray Kavukcuoglu)
+Copyright (c) 2011-2013 NYU (Clement Farabet)
+Copyright (c) 2006-2010 NEC Laboratories America (Ronan Collobert, Leon Bottou,
+   Iain Melvin, Jason Weston)
+Copyright (c) 2006      Idiap Research Institute (Samy Bengio)
+Copyright (c) 2001-2004 Idiap Research Institute (Ronan Collobert, Samy Bengio,
+   Johnny Mariethoz)
+License: BSD-3-Clause
+https://github.com/pytorch/pytorch/blob/main/LICENSE
+
+Flask
+Copyright (c) 2010 Pallets
+License: BSD-3-Clause
+https://github.com/pallets/flask/blob/main/LICENSE.rst
+
+Django
+Copyright (c) Django Software Foundation and individual contributors
+License: BSD-3-Clause
+https://github.com/django/django/blob/main/LICENSE
+
+================================================================================
+Data and Validation Datasets
+================================================================================
+
+IMS Infrasound Data
+Provided by the Comprehensive Nuclear-Test-Ban Treaty Organization (CTBTO)
+International Monitoring System (IMS)
+Terms of Use: https://www.ctbto.org/data-and-analytics/data-centre/
+
+NHC Hurricane Best Track Data
+Provided by NOAA National Hurricane Center
+Terms of Use: https://www.nhc.noaa.gov/data/
+
+SPC Severe Weather Reports
+Provided by NOAA Storm Prediction Center
+Terms of Use: https://www.spc.noaa.gov/
+
+Smithsonian GVP Eruption Database
+Provided by Smithsonian Institution Global Volcanism Program
+Terms of Use: https://volcano.si.edu/
+
+ECMWF ERA5 Reanalysis
+Provided by European Centre for Medium-Range Weather Forecasts
+Terms of Use: https://www.ecmwf.int/en/forecasts/datasets/reanalysis-datasets/era5
+
+================================================================================
+Acknowledgments
+================================================================================
+
+The INFRAS-CLOUD project gratefully acknowledges:
+
+- The Comprehensive Nuclear-Test-Ban Treaty Organization (CTBTO) for providing
+  access to IMS infrasound data
+- The 47 IMS station operators worldwide for maintaining the global infrasound
+  monitoring network
+- NOAA for validation datasets and severe weather records
+- The scientific community for foundational research in infrasound physics
+- All open-source contributors whose libraries make this work possible
+
+================================================================================
+Contact
+================================================================================
+
+Samir Baladi
+Email: gitdeeper@gmail.com
+ORCID: 0009-0003-8903-0029
+DOI: 10.5281/zenodo.18952438
+Web: https://infrascloud.netlify.app

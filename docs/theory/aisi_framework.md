@@ -1,0 +1,3 @@
+# AISI Framework
+
+The Atmospheric Infrasonic Severity Index (AISI) combines eight physical parameters...

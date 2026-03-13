@@ -1,0 +1,64 @@
+cff-version: 1.2.0
+message: "If you use INFRAS-CLOUD in your research, please cite it as below."
+title: "INFRAS-CLOUD: Atmospheric Infrasound & Severe Weather Acoustic Signatures"
+version: 1.0.0
+doi: 10.5281/zenodo.18952438
+date-released: 2026-03-11
+authors:
+  - family-names: "Baladi"
+    given-names: "Samir"
+    orcid: "https://orcid.org/0009-0003-8903-0029"
+    email: "gitdeeper@gmail.com"
+    affiliation: "Ronin Institute / Rite of Renaissance"
+
+repository-code: "https://github.com/gitdeeper9/infrascloud"
+repository-artifact: "https://gitlab.com/gitdeeper9/infrascloud"
+url: "https://infrascloud.netlify.app"
+license: "MIT"
+
+keywords:
+  - "atmospheric infrasound"
+  - "severe weather acoustics"
+  - "microbaroms"
+  - "stratospheric ducting"
+  - "beamforming"
+  - "infrasonic event detection"
+  - "wavelet transform"
+  - "Helmholtz equation"
+  - "tornado acoustics"
+  - "tropical cyclone infrasound"
+  - "volcanic explosion acoustics"
+  - "coherence analysis"
+  - "IMS network"
+  - "geophysical signal processing"
+  - "AISI composite index"
+
+abstract: "INFRAS-CLOUD (Infrasonic Network for Real-time Atmospheric Signatures) is a physics-grounded eight-parameter framework for continuous, real-time acoustic monitoring of severe atmospheric phenomena through analysis of infrasonic wave fields in the frequency band 0.001--20 Hz. The framework integrates eight governing physical parameters into a unified Atmospheric Infrasonic Severity Index (AISI): Microbarom Amplitude, Stratospheric Ducting Efficiency, Spectral Peak Frequency, Azimuthal Arrival Angle, Phase Velocity, Atmospheric Absorption Coefficient, Inter-station Coherence, and Signal-to-Noise Ratio. Validated against 47 IMS infrasound arrays (2005--2025) with 1,847 confirmed natural events, achieving 93.1% classification accuracy."
+
+references:
+  - type: article
+    authors:
+      - family-names: "Baladi"
+        given-names: "Samir"
+    title: "INFRAS-CLOUD: A Multi-Parameter Physics Framework for Real-Time Acoustic Sensing of Severe Weather Systems"
+    journal: "Journal of Geophysical Research: Atmospheres"
+    year: 2026
+    doi: 10.5281/zenodo.18952438
+
+  - type: software
+    authors:
+      - family-names: "Baladi"
+        given-names: "Samir"
+    title: "infras_core.py - INFRAS-CLOUD Python Module"
+    year: 2026
+    doi: 10.5281/zenodo.18952438
+    version: "1.0.0"
+
+  - type: dataset
+    authors:
+      - family-names: "Baladi"
+        given-names: "Samir"
+    title: "INFRAS-CLOUD Validation Dataset: 47 IMS Stations (2005-2025)"
+    year: 2026
+    doi: 10.5281/zenodo.18952438
+    version: "1.0.0"
